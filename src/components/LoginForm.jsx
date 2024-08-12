@@ -21,8 +21,11 @@ const LoginForm = () => {
 
  
   const onSubmit = async (values) => {
+    console.log("11111111111")
     let  res = await dispatch(loginUser({...values}));
-    if(res?.payload?.user){
+    console.log(res);
+    console.log("11111112222222222221111")
+    if(res?.user){
       navigate('/')
     }
   };
