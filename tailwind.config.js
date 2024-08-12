@@ -22,9 +22,9 @@ module.exports = {
         dark_text_4 : "#D1D6D8",
         dark_text_5 : "#99BEB7",
         dark_scrollbar : "#374045",
-        green_1 : "00A884",
-        green_2 : "008069",
-        green_3 : "005C4B"
+        green_1 : "#00A884",
+        green_2 : "#008069",
+        green_3 : "#005C4B"
       }
     },
   },
