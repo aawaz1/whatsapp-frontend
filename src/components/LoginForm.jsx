@@ -17,14 +17,14 @@ const LoginForm = () => {
   const navigate = useNavigate();
  
   const { register,handleSubmit ,formState: { errors } } = useForm({resolver : yupResolver(signinSchema)});
-  const {status ,error} = useSelector((state) => state.user)
+  const {status ,error} = useSelector((state) => state.user);
+  console.log(error);
 
  
   const onSubmit = async (values) => {
-    console.log("11111111111")
     let  res = await dispatch(loginUser({...values}));
     console.log(res);
-    console.log("11111112222222222221111")
+  
     if(res?.user){
       navigate('/')
     }

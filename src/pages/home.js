@@ -1,6 +1,21 @@
+import { useDispatch, useSelector } from "react-redux"
 import { Sidebar } from "../components/sidebar"
+import { useEffect } from "react";
+import {getConversations} from '../features/chatSlice.js'
 
-const home = () => {
+const Home = () => {
+  const {user} = useSelector(state => state.user);
+  console.log(user); 
+  
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(user?.token){
+      dispatch(getConversations(user.token))
+
+    }
+
+  },[])
+
 
   return (
     <div  className="min-h-screen dark:bg-dark_bg_1 flex items-center justify-center py-[19px] overflow-hiddens">
@@ -14,4 +29,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home

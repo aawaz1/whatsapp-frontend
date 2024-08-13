@@ -4,7 +4,7 @@ import { Search } from "./search"
 import { Sidebarheader } from "./sidebar-header"
 
 const Sidebar = () => {
-    const [searchInput ,setSearchInput] = useState([]);
+    const [searchResults ,setSearchResults] = useState([]);
   return (
     <div  className="w-[40%] h-full select-none">
         {/* Sidebar Header */}
@@ -12,7 +12,7 @@ const Sidebar = () => {
         {/* Notification */}
         <Notification/>
         {/* Search */}
-        <Search searchResults={searchInput.length}/>
+        <Search searchLength={searchResults.length}/>
 
 
     </div>

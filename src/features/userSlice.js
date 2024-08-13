@@ -33,10 +33,10 @@ export const  registerUser = createAsyncThunk('auth/register' , async(values , {
 })
 
 export const  loginUser = createAsyncThunk('auth/login' , async(values , {rejectWithValue}) => {
-    console.log("1111111111111")
+   
     try {
         const {data} = await axios.post(`${AUTH_ENDPOINT}/login` , {...values});
-        console.log("22222222222222222222")
+       
         return data;
         
     } catch (error) {
