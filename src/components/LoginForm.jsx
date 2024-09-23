@@ -3,7 +3,7 @@ import Authinput from './auth/Authinput.jsx'
 import {yupResolver} from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
 import PulseLoader from 'react-spinners/PulseLoader';
-import { signinSchema } from '../utils.js/validation.js';
+import { signinSchema } from '../utils/validation.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser} from '../features/userSlice.js';
 
@@ -23,7 +23,7 @@ const LoginForm = () => {
  
   const onSubmit = async (values) => {
     let  res = await dispatch(loginUser({...values}));
-    console.log(res);
+   
   
     if(res?.user){
       navigate('/')

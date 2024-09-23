@@ -51,18 +51,17 @@ export const userSlice = createSlice({
     initialState,
     reducers : {
         logout : (state) => {
-            state.status = "";
-            state.error =  "";
-            state.user = {
-                id : "",
-                name : "",
-                picture : "",
-                status : "",
-                email : "",
-                token  : "",
+          state.status ="";
+          state.error = "";
+          state.user = {
+            id :"",
+            name : "",
+            email : "",
+            picture : "",
+            status : "",
+            token :"",
 
-            }
-
+          }
         },
         changeStatus : (state ,action) =>  {
             state.status = action.payload

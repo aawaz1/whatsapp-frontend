@@ -2,17 +2,37 @@ import { useState } from "react"
 import { Notification } from "./notification"
 import { Search } from "./search"
 import { Sidebarheader } from "./sidebar-header"
+import Conversations from "./conversation/Conversations"
+import {SearchResults} from "./search"
 
-const Sidebar = () => {
+const Sidebar = ({onlineUsers , typing}) => {
+  console.log(onlineUsers , "aaaaaaaaaaaa");
     const [searchResults ,setSearchResults] = useState([]);
+    console.log(searchResults);
   return (
-    <div  className="w-[40%] h-full select-none">
+    <div  className="flex0030  overflow-hidden max-w-[30%] h-full select-none">
         {/* Sidebar Header */}
         <Sidebarheader/>
         {/* Notification */}
         <Notification/>
         {/* Search */}
-        <Search searchLength={searchResults.length}/>
+        <Search searchLength={searchResults?.length} setSearchResults={setSearchResults}/>
+        {searchResults?.length > 0 ? (
+          <>
+         
+          {/* Search results */}
+           <SearchResults searchResults={searchResults} setSearchResults={setSearchResults}/>
+           </>
+         
+        ) : (
+          <>
+          {/* Conversation */}
+         
+           <Conversations onlineUsers={onlineUsers} typing={typing}/></>
+        )
+        }
+  
+   
 
 
     </div>

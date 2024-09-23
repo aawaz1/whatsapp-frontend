@@ -3,7 +3,7 @@ import Authinput from './auth/Authinput.jsx'
 import {yupResolver} from '@hookform/resolvers/yup';
 import { useDispatch, useSelector } from 'react-redux';
 import PulseLoader from 'react-spinners/PulseLoader';
-import { signupSchema } from '../utils.js/validation.js';
+import { signupSchema } from '../utils/validation.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { changeStatus, registerUser } from '../features/userSlice.js';
 import { useState } from 'react';
