@@ -4,7 +4,7 @@ import { open_create_conversation } from '../../../features/chatSlice';
 import { getConversationId } from '../../../utils/chat.utils';
 import SocketContext from '../../../context/socketContext';
 function Contact({contact , setSearchResults ,socket}){
-   console.log(contact);
+  
     const dispatch = useDispatch();
     const {user} = useSelector(state => state.user);
     const {token} = user;

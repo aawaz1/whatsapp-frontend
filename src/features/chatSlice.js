@@ -56,11 +56,10 @@ export const open_create_conversation = createAsyncThunk(
 export const getConversationsMessages  = createAsyncThunk(
     "conversation/messages" ,
     async(values  , {rejectWithValue}) => {
-        console.log(values , "valuesssssssss")
+       
         
         const {token ,convo_id} = values;
-        console.log(convo_id , "convoooidddddddddddddddddddddddddddddddddddddddddddd")
-   
+           
     try {
         const {data} = await axios.get(`${MESSAGE_ENDPOINT}/${convo_id}` , {
             headers : {
@@ -68,7 +67,7 @@ export const getConversationsMessages  = createAsyncThunk(
             }})
 
 
-            console.log(data , "datadatadtata1111111111111111111111")
+           
 
             return data;
         
@@ -85,6 +84,25 @@ export const sendMessages  = createAsyncThunk(
    
     try {
         const {data} = await axios.post(MESSAGE_ENDPOINT ,{message,convo_id , files}, {
+            headers : {
+                Authorization : `Bearer ${token}`
+            }})
+
+            return data;
+        
+    } catch (error) {
+        return rejectWithValue(error?.response?.data?.error?.message);
+        
+    }
+});
+
+export const createGroupConversation = createAsyncThunk(
+    "conversation/open_create_group" ,
+    async(values  , {rejectWithValue}) => {
+        const {token ,name ,users} = values;
+   
+    try {
+        const {data} = await axios.post(`${CONVERSATION_ENDPOINT }/group`,{name ,users}, {
             headers : {
                 Authorization : `Bearer ${token}`
             }})
@@ -130,11 +148,18 @@ export const chatSlice = createSlice({
         addFiles : (state, action) => {
             state.files = [...state.files ,action.payload];
 
-         
-            
-            
-          
-        }
+         }
+         ,
+        removeFiles : (state, action) => {
+            state.files = [];
+
+         },
+         removeFileFromFiles : (state, action) => {
+           let index = action.payload;
+           let files = [...state.files]
+           let filesToRemove = [files[index]];
+           state.files = files.filter((file) => !filesToRemove.includes(file))
+         }
     },
     extraReducers(builder){
         builder.addCase(getConversations.fulfilled, (state,action) => {
@@ -155,6 +180,7 @@ export const chatSlice = createSlice({
         builder.addCase(open_create_conversation.fulfilled, (state,action) => {
             state.status = "succeded";
             state.activeConversation = action.payload;
+            state.files = [];
 
         })
         builder.addCase(open_create_conversation.rejected, (state,action) => {
@@ -224,6 +250,6 @@ export const chatSlice = createSlice({
 
 
 
-export const {setActiveConversations ,updateMessagesAndConversations ,addFiles} = chatSlice.actions
+export const {setActiveConversations ,updateMessagesAndConversations ,removeFileFromFiles,addFiles ,removeFiles} = chatSlice.actions
 
 export default chatSlice.reducer

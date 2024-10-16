@@ -1,7 +1,7 @@
 import moment from "moment";
 
 export default function Message({message , me}) {
-  console.log(me ,"meeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+
     
   return (
     <div className={`w-full  flex mt-2 space-x-3 max-w-xs ${me ? "ml-auto justify-end " : ""}`}>

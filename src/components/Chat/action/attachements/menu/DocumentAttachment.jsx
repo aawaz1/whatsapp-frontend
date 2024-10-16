@@ -26,6 +26,7 @@ export default function DocumentAttachment() {
                 &&
                 file.type !== "application/vnd.rar" &&
                 file.type !== "application/zip"
+                
             )  {
                 files = files.filter((item) => item.name !== file.name);
                 return;

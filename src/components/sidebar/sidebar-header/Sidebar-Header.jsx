@@ -2,14 +2,18 @@ import {  useSelector } from "react-redux";
 import {ChatIcon, CommunityIcon, DotsIcon, StoryIcon} from '../../../svg'
 import { useState } from "react";
 import Menu from "./Menu";
+import { CreateGroup } from "../createGroup";
 
 
 const Sidebarheader = () => {
    
     const {user} = useSelector((state) => state.user);
     const [showMenu,setShowMenu] = useState(false);
+    const [showGroup,setShowGroup] = useState(false);
   return (
-    <div className="h-[50px] dark:bg-dark_bg_2 flex items-center">
+    <>
+    {/* Sidebar Header */}
+        <div className="h-[50px] dark:bg-dark_bg_2 flex items-center">
         {/* Container */}
         <div className="w-full flex items-center justify-between">
             {/* User Image */}
@@ -39,7 +43,7 @@ const Sidebarheader = () => {
                             <DotsIcon className="dark:fill-dark_svg_1"/>
                         </button>
                         {
-                            showMenu ? <Menu/> : ""
+                            showMenu ? <Menu setShowGroup={setShowGroup}/> : ""
                         }
                     </li>
                 </ul>
@@ -47,6 +51,11 @@ const Sidebarheader = () => {
 
         
     </div>
+    {/* Create Group */}
+   {
+    showGroup && ( <CreateGroup setShowGroup={setShowGroup} />)
+   }
+    </>
   )
 }
 

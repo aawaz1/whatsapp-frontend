@@ -20,7 +20,7 @@ function ChatActions({socket}) {
     const {token} = user;
     const values = {
         message ,
-        convo_id : activeConversation._id,
+        convo_id : activeConversation?._id,
         files : [],
         token ,
 
@@ -32,7 +32,6 @@ function ChatActions({socket}) {
         setLoading(true);
        let newMsg =  await dispatch(sendMessages(values));
        socket.emit("send message", newMsg.payload)
-       console.log("newMsg",newMsg);
         setLoading(false);
         setMessage("");
         

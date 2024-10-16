@@ -15,7 +15,7 @@ function Search({searchLength ,setSearchResults}) {
                     Authorization : `Bearer ${token}`
                 }
             })
-            console.log(data , "--------------------");
+            
             setSearchResults(data);
            
             

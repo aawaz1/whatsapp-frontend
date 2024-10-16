@@ -26,7 +26,7 @@ const RegisterForm = () => {
     formData.append('upload_preset' , cloud_secret)
     formData.append('file' , picture)
     const {data} = await axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload` , formData)
-    console.log(data)
+   
     return data;
   }
   const onSubmit = async (data) => {
@@ -86,7 +86,7 @@ const RegisterForm = () => {
               type="text"
               placeholder= "Please Enter A Status(Optional)"
               register={register}
-              error={errors?.status?.message}
+              // error={errors?.status?.message}
               />
                <Authinput
               name="password"

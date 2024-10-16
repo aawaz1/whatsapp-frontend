@@ -6,9 +6,9 @@ import Conversations from "./conversation/Conversations"
 import {SearchResults} from "./search"
 
 const Sidebar = ({onlineUsers , typing}) => {
-  console.log(onlineUsers , "aaaaaaaaaaaa");
+  
     const [searchResults ,setSearchResults] = useState([]);
-    console.log(searchResults);
+ 
   return (
     <div  className="flex0030  overflow-hidden max-w-[30%] h-full select-none">
         {/* Sidebar Header */}

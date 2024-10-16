@@ -7,8 +7,7 @@ import { Capitalize } from '../../../utils/string.utils';
 import { Socket } from 'socket.io-client';
 import SocketContext from '../../../context/socketContext';
  function Conversation({convo , socket , online ,typing})  {
-    console.log("onlineeeeeee" , online)
-    console.log(convo , '@222222222222222')
+   
     const dispatch = useDispatch();
     const {user} = useSelector(state => state.user);
     const {activeConversation} = useSelector(state => state.chat);
@@ -17,6 +16,7 @@ import SocketContext from '../../../context/socketContext';
     
     const values = {
         receiver_id : getConversationId(user , convo.users),
+        isGroup : convo.isGroup ? convo._id: false,
         token
     }
     const openConversation = async() => {
@@ -24,9 +24,7 @@ import SocketContext from '../../../context/socketContext';
         socket.emit('join conversation' ,newConvo?.payload?._id)
 
     }
-    console.log(convo._id , "convoooooooooooooooooo");
-    console.log(convo , "nameeeeeeeeeeeeee");
-    console.log(activeConversation._id , "activeeeeeeeeeeeeeee")
+  
   return (
     <li onClick={() => openConversation()} className={`list-none h-[72px] w-full  bg-red-500 dark:bg-dark_bg_1 hover:${convo._id === activeConversation._id ? "" : "dark:bg-dark_bg_2"} cursor-pointer dark:text-dark_text_1 px-[10px] ${convo._id === activeConversation._id ? "dark:bg-dark_hover_1" : null}`}>
         {/* Container */}
@@ -35,7 +33,7 @@ import SocketContext from '../../../context/socketContext';
             <div className="flex items-center gap-x-3">
                 {/* Conversation User Picture */}
                 <div className={`relative ${online ? 'online' : ""} max-w-[50px] min-w-[50px] h-[50px] rounded-full overflow-hidden`}>
-                    <img src={getConversationPicture(user , convo.users)} alt={(getConversationName(user, convo.users))} className="w-full h-full object-cover"/>
+                    <img src={convo.isGroup ? convo.picture :getConversationPicture(user , convo.users) } alt={(getConversationName(user, convo.users))} className="w-full h-full object-cover"/>
 
                 </div>
                 {/* Conversation  name and  message */}
@@ -43,7 +41,7 @@ import SocketContext from '../../../context/socketContext';
                     {/* Conversation name */}
                     <h1 className="font-bold flex items-center gap-x-2">
                         {
-                            Capitalize(getConversationName(user, convo.users))
+                          convo.isGroup  ? convo.name :  Capitalize(getConversationName(user, convo.users))
                         }
                     </h1>
                     {/* Conversation message */}
