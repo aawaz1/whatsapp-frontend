@@ -12,7 +12,7 @@ const ChatHeader = ({online ,callUser ,setShow}) => {
     console.log(activeConversation, "acitveeeeeee")
     const {name, picture} = activeConversation;
   return (
-    <div className="h-[59px]  dark:bg-dark_bg_2 flex items-center p16 select-none">
+    <div className="h-[59px]  dark:bg-dark_bg_2 flex items-center md:p16 select-none">
         {/* Container */}
         <div className="w-full flex items-center justify-between">
             {/* Left */}
