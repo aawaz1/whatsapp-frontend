@@ -10,9 +10,9 @@ const Sidebar = ({onlineUsers , typing}) => {
     const [searchResults ,setSearchResults] = useState([]);
  
   return (
-    <div  className="flex0030  overflow-hidden max-w-[30%] h-full select-none">
-        {/* Sidebar Header */}
-        <Sidebarheader/>
+    <div className="md:flex0030 w-full max-w-[100%] md:max-w-[30%] h-full select-none overflow-hidden">
+    {/* Sidebar Header */}
+    <Sidebarheader />
         {/* Notification */}
         <Notification/>
         {/* Search */}

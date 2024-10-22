@@ -183,7 +183,7 @@ function Home({ socket }) {
   return (
     <>
       <div className="h-screen dark:bg-dark_bg_1 flex items-center justify-center overflow-hidden">
-        <div className="container py-[19px] h-screen flex">
+        <div className="container py-[19px] h-screen flex flex-col md:flex-row">
           {/* Sidebar */}
           <Sidebar onlineUsers={onlineUsers} typing={typing} />
           {activeConversation._id
