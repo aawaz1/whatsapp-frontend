@@ -75,7 +75,7 @@ const LoginForm = () => {
               {/* sign in links */}
               <p className='flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1'>
                 <span>don't have an account</span>
-                <Link rel="stylesheet" href="/register" className='hover:underline cursor-pointer transition ease-in duration-300'>Sign Up</Link>
+                <Link rel="stylesheet" to="/register" className='hover:underline cursor-pointer transition ease-in duration-300'>Sign Up</Link>
               </p>
             </form>
 

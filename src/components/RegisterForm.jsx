@@ -109,7 +109,7 @@ const RegisterForm = () => {
               {/* sign in links */}
               <p className='flex flex-col items-center justify-center mt-10 text-center text-md dark:text-dark_text_1'>
                 <span>have an account</span>
-                <Link rel="stylesheet" href="/login" className='hover:underline cursor-pointer transition ease-in duration-300'>Sign In</Link>
+                <Link rel="stylesheet" to="/login" className='hover:underline cursor-pointer transition ease-in duration-300'>Sign In</Link>
               </p>
             </form>
 
