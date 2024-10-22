@@ -33,11 +33,11 @@ const ChatHeader = ({online ,callUser ,setShow}) => {
             </div>
             {/* Right */}
             <ul className="flex items-center gap-x-2.5">
-            <li onClick={() => callUser()} className="">
+            {/* <li onClick={() => callUser()} className="">
                     <button className="btn">
                         <MdVideoCall className="dark:fill-dark_svg_1 w-5"/>
                     </button>
-                </li>
+                </li> */}
             <li className="">
                     <button className="btn">
                         <CallIcon className="dark:fill-dark_svg_1"/>
