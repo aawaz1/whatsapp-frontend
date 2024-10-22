@@ -37,7 +37,7 @@ export default function ChatContainer({onlineUsers,setShow ,callUser,typing}){
 
 
   return (
-    <div className="relative  w-full  md:h-full border-1 dark:border-1-dark_border_2 select-none md:overflow-hidden">
+    <div className="relative  w-full h-[50%] md:h-full border-1 dark:border-1-dark_border_2 select-none md:overflow-hidden">
       {/* Container */}
       <div>
         {/* Chat Header */}
